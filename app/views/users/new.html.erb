@@ -1,4 +1,4 @@
-<h1>User Register</h1>
+<h1 class="top">User Register</h1>
 <% if @user.errors.any? %>
   <p>The form contains<%= @user.errors.size %> errors</p>
   <ul>
@@ -10,23 +10,27 @@
   </ul>
 <% end%>
 
+<div class="container-fluid sign_up_form">
+  <%= form_with(model: @user,local: true) do |f| %>
+    <div class="row">
+      <%= f.label :name,class: "col-xs-offset-2 col-xs-3" %>  
+      <%= f.text_field :name,class:"col-xs-5"%>
+    </div>
+    <div class="row">
+      <%= f.label :email,class: "col-xs-offset-2 col-xs-3"  %>
+      <%= f.text_field :email,class:"col-xs-5" %>  
+    </div>
+    <div class="row">
+      <%= f.label :password,class: "col-xs-offset-2 col-xs-3"  %>
+      <%= f.text_field :password,class:"col-xs-5" %>  
+    </div>
+    <div class="row">
+      <%= f.label :password_confirm,class: "col-xs-offset-2 col-xs-3"  %>
+      <%= f.text_field :password_confirm,class:"col-xs-5" %>  
+    </div>
+    <div class="submit_row">
+      <%= f.submit "register",class: "btn btn-default" %>    
+    </div>
+  <% end %>
+</div>
 
-<%= form_with(model: @user,local: true) do |f| %>
-  <div class="form_row">
-    <%= f.label :name %>  
-    <%= f.text_field :name %>
-  </div>
-  <div class="form_row">
-    <%= f.label :email %>
-    <%= f.text_field :email %>  
-  </div>
-  <div class="form_row">
-    <%= f.label :password %>
-    <%= f.text_field :password %>  
-  </div>
-  <div class="form_row">
-    <%= f.label :password_confirm %>
-    <%= f.text_field :password_confirm %>  
-  </div>
-  <%= f.submit "register" %>
-<% end %>
