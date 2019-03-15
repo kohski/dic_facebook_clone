@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  root 'pictures#index'
+
   resources :pictures do
     collection do
       post :confirm
