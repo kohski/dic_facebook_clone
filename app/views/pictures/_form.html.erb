@@ -1,0 +1,17 @@
+<%= form_with(model: @picture,local: true,url: choose_new_or_edit ) do |f| %>
+  <div class="picture_title">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="picture_title">
+    <%= f.label :image %>
+    <%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %>
+    <%= f.file_field :image, id: :picture_image %>
+    <%= f.hidden_field :image_cache %>
+  </div>
+  <div class="picture_title">
+    <%= f.label :comment %>
+    <%= f.text_area :comment%>
+  </div>
+  <%= f.submit %>
+<% end %>

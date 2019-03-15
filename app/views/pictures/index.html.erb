@@ -1,0 +1,26 @@
+<h1>pictures index</h1>
+<table class="table">
+  <tr>
+    <th>title</th>
+    <th>image</th>
+    <th>comment</th>
+    <th>detail</th>
+    <th>edit</th>
+    <th>delete</th>
+  </tr>
+  <% @pictures.each do |picture| %>
+    <tr>
+      <td><%= picture.title %></td>
+      <% if picture.image.url %>
+        <td><%= image_tag picture.image.url %></td>
+      <%else%>
+        <td>no image...</td>
+      <% end %>
+      <td><%= picture.comment %></td>
+      <td><%= link_to "dtl",picture_path(picture.id),class: "btn btn-default" %></td>
+      <td><%= link_to "edt",edit_picture_path(picture.id), class: "btn btn-default" %></td>
+      <td><%= link_to "dlt",picture_path(picture.id),method: :delete, class: "btn btn-default" %></td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to "new post",new_picture_path %>

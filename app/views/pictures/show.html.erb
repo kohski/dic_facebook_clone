@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+  <div class="title_row">
+    <%= @picture.title %>
+  </div>
+  <div class="picture_row">
+    <%= image_tag @picture.image.url if @picture.image && @picture.image.url %>
+  </div>
+  <div class="comment_row">
+    <%= @picture.comment %>    
+  </div>
+ <%= link_to 'Edit', edit_picture_path(@picture) %> |
+ <%= link_to 'Back', pictures_path %>

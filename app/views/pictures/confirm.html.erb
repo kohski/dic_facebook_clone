@@ -1,0 +1,10 @@
+<%= form_with(model: @picture,local: true) do |f|%>
+  <%= f.hidden_field :title %>
+  <%= f.hidden_field :image_cache %>
+  <%= f.hidden_field :comment%>
+  <p><%= @picture.title %></p>
+  <%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %>
+  <p><%= @picture.comment %></p>
+  <%= f.submit "create"%>
+<% end %>
+
