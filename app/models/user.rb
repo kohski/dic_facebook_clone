@@ -7,4 +7,7 @@ class User < ApplicationRecord
 
   has_secure_password
   before_validation { email.downcase! }
+
+  has_many :pictures
+
 end
