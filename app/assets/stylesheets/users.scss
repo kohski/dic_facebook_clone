@@ -1,3 +1,28 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.row{
+  margin:0px;
+  padding:10px;
+}
+
+.btn{
+  background-color: #cccccc;
+  border:none;
+  width:80px;
+}
+
+.submit_row{
+  text-align: center;
+}
+
+dt{
+  float:left;
+  font-weight:400;
+  font-size:20px;
+}
+
+dd{
+  font-size:20px;
+}

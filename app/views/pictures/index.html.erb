@@ -1,26 +1,27 @@
-<h1>pictures index</h1>
-<table class="table">
-  <tr>
-    <th>title</th>
-    <th>image</th>
-    <th>comment</th>
-    <th>detail</th>
-    <th>edit</th>
-    <th>delete</th>
-  </tr>
+<div class="container-fluid">
   <% @pictures.each do |picture| %>
-    <tr>
-      <td><%= picture.title %></td>
-      <% if picture.image.url %>
-        <td><%= image_tag picture.image.url %></td>
-      <%else%>
-        <td>no image...</td>
-      <% end %>
-      <td><%= picture.comment %></td>
-      <td><%= link_to "dtl",picture_path(picture.id),class: "btn btn-default" %></td>
-      <td><%= link_to "edt",edit_picture_path(picture.id), class: "btn btn-default" %></td>
-      <td><%= link_to "dlt",picture_path(picture.id),method: :delete, class: "btn btn-default" %></td>
-    </tr>
+    <div class="panel panel-default">
+      <div class="page-header">
+        <h2><%= picture.title %></h2>
+      </div>
+      <div class="page-body image">
+        <% if picture.image.url %>
+          <p><%= image_tag picture.image.url %></p>
+        <%else%>
+          <p>no image...</p>
+        <% end %>
+      </div>
+      <div class="page-body comment">
+        <p><%= picture.comment %></p>            
+      </div>
+      <div class="page-footer">
+        <div class="buttons">
+          <%= link_to "show",picture_path(picture.id),class: "btn btn-default" %>
+          <%= link_to "edit",edit_picture_path(picture.id), class: "btn btn-default" %>
+          <%= link_to "delete",picture_path(picture.id),method: :delete, class: "btn btn-default" %>        
+        </div>
+      </div>    
+    </div>
   <% end %>
-</table>
-<%= link_to "new post",new_picture_path %>
+</div>
+

@@ -9,16 +9,21 @@
   </head>
 
   <body>
+    <div class="page-head">
+      <%= link_to "Top",pictures_path, class: "top btn btn-info" %>
+      <%= link_to "new post",new_picture_path, class: "top btn btn-info" %>
+      
+      <% if logged_in?%>
+        <%= link_to 'Log out', session_path(id: current_user.id),method: :delete,class: "user_info btn btn-info" %>
+        <%= link_to 'Profile', user_path(current_user.id),class: "user_info btn btn-info" %>
+      <% else %>
+        <%= link_to 'Sign up', new_user_path,class: "user_info btn btn-info" %>
+        <%= link_to 'Log in', new_session_path,class: "user_info btn btn-info" %>
+      <% end %>
+    </div>
+
     <% flash.each do |key,value|%>
       <%= content_tag(:div,value,class:"#{key}") %>
-    <% end %>
-
-    <% if logged_in?%>
-      <%= link_to 'Profile', user_path(current_user.id) %>
-      <%= link_to 'Log out', session_path(id: current_user.id),method: :delete %>
-    <% else %>
-      <%= link_to 'Sign up', new_user_path %>
-      <%= link_to 'Log_in', new_session_path %>
     <% end %>
 
     <%= yield %>

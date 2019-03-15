@@ -1,12 +1,30 @@
-<p id="notice"><%= notice %></p>
-  <div class="title_row">
-    <%= @picture.title %>
+<p id="notice">
+  <%= notice %>
+</p>
+
+<div class="panel panel-default">
+  <div class="page-header">
+    <h2><%= @picture.title %></h2>
   </div>
-  <div class="picture_row">
+  <div class="page-body image">
     <%= image_tag @picture.image.url if @picture.image && @picture.image.url %>
   </div>
-  <div class="comment_row">
+  <div class="page-body comment">
     <%= @picture.comment %>    
   </div>
- <%= link_to 'Edit', edit_picture_path(@picture) %> |
- <%= link_to 'Back', pictures_path %>
+  <div class="page-footer">
+    <%= link_to 'Edit', edit_picture_path(@picture),class: "btn btn-default" %>
+    <%= link_to 'Back', pictures_path,class: "btn btn-default" %>
+  </div>
+</div>
+
+
+
+
+<div class="title_row">
+</div>
+<div class="picture_row">
+</div>
+<div class="comment_row">
+    
+</div>

@@ -1,7 +1,15 @@
-<h1>User Detail</h1>
-<p>
-  name:<%= @user.name %>
-</p>
-<p>
-  email:<%= @user.email %>
-</p>
+<h1 class="top">User Detail</h1>
+
+<div class="container-fluid">
+  <dl>
+    <div class="row">
+      <dt class="col-xs-offset-4 col-xs-1">name</dt>
+      <dd class="col-xs-6"><%= @user.name %></dd>    
+    </div>
+    <div class="row">
+      <dt class="col-xs-offset-4 col-xs-1">email</dt>
+      <dd class="col-xs-6"><%= @user.email %></dd>
+    </div>
+  </dl>
+</div>
+

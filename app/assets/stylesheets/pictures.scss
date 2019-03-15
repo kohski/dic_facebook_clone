@@ -1,3 +1,96 @@
 // Place all the styles related to the pictures controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+  background-color: #f9f9f9;
+}
+
+.page-head{
+  margin-top:0;
+  background-color: #4968AD;
+  height:60px;
+  margin-bottom:20px;
+}
+
+.user_info{
+  float:right;
+  margin-right:5px;
+}
+
+.btn-info.user_info,.btn-info.top {
+  background-color:#1D2945;
+  border:none;
+  margin-top:13px;
+  width:100px;
+}
+
+
+h1.top{
+  text-align:center;
+  margin:0;
+  padding:10px;  
+}
+
+.page-header{
+  margin:0;
+  padding:20px 0;
+  background-color: #eeeeee;
+}
+
+.page-header>h2{
+  margin:0;
+  font-size:25px;
+  text-align:center;
+}
+
+.page-body.image{
+  text-align: center;
+  padding:10px;
+  background-color: #fbfbfb;
+}
+
+.page-body.comment{
+  height:100px;
+  border-top:1px solid #dddddd;
+  border-bottom:1px solid #dddddd;  
+  font-size:20px;
+  text-indent:20px;
+}
+
+.page-footer{
+  padding:10px;
+  background-color: #eeeeee;
+}
+
+.page-footer .btn{
+  background-color: #cccccc;
+  border:none;
+  width:80px;
+}
+
+
+
+// _form.html.erbのコーディング
+.form_page .row{
+  padding:10px;
+}
+
+.form_page .file_buttn{
+  border:none;
+  width:100px;
+}
+
+.form_page label{
+  font-size:20px;
+}
+
+.form_page .btn{
+  background-color: #cccccc;
+  border:none;
+  width:80px;
+}
+
+.submit_row{
+  text-align: center;
+}
