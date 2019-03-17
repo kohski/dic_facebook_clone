@@ -8,19 +8,22 @@ class PicturesController < ApplicationController
   end
 
   def create
-    # @picture = Picture.new(set_params)
-    # if @picture.save
-    @picture = current_user.pictures.build(set_params)
-    if @picture.save
-      redirect_to pictures_path,notice:"登録しました"
+
+    if !current_user
+      redirect_to new_session_path,notice: "投稿の前にログインしてください"
     else
-      render 'new'
+      @picture = current_user.pictures.build(set_params)
+      if @picture.save
+        redirect_to pictures_path,notice:"登録しました"
+      else
+        render 'new'
+      end
     end
   end
+
   def show
     @picture = Picture.find(params[:id])
   end
-
   def edit
     @picture = Picture.find(params[:id])
   end
