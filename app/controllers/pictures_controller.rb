@@ -11,17 +11,18 @@ class PicturesController < ApplicationController
     end
   end
 
-  def create
+  def confirm
+    @picture = Picture.new(set_params)
+    @picture.user_id = current_user.id
+    render 'new' if @picture.invalid?
+  end
 
-    if !current_user
-      redirect_to new_session_path,notice: "投稿の前にログインしてください"
+  def create    
+    @picture = current_user.pictures.build(set_params)
+    if @picture.save
+      redirect_to pictures_path,notice:"登録しました"
     else
-      @picture = current_user.pictures.build(set_params)
-      if @picture.save
-        redirect_to pictures_path,notice:"登録しました"
-      else
-        render 'new'
-      end
+      render 'new'
     end
   end
 
@@ -49,10 +50,6 @@ class PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
     @picture.destroy
     redirect_to pictures_path,notice:"削除しました"
-  end
-
-  def confirm
-    @picture = Picture.new(set_params)
   end
 
   private
