@@ -4,7 +4,11 @@ class PicturesController < ApplicationController
   end
 
   def new
-    @picture = Picture.new
+    if logged_in?
+      @picture = Picture.new
+    else
+      redirect_to new_session_path,notice:"最初にログインしてください"
+    end
   end
 
   def create
@@ -25,7 +29,11 @@ class PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
   end
   def edit
-    @picture = Picture.find(params[:id])
+    if Picture.find(params[:id]).user_id == current_user.id
+      @picture = Picture.find(params[:id])
+    else
+      redirect_to pictures_path, notice:"他ユーザーの投稿は編集できません。"
+    end
   end
 
   def update
